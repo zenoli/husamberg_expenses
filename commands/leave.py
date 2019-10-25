@@ -1,4 +1,4 @@
-import commands.flatmates as flatmates
+import db
 
 def success_msg(number, name): 
     return (
@@ -31,9 +31,9 @@ def leave_command(number, arg_str):
     if number != typed_number:
         return wrong_number_msg(number, typed_number)
     
-    name = flatmates.remove_flatmate(number)
+    name = db.remove_flatmate(number)
     if name:
-        flatmates.save()
+        db.save()
         return success_msg(number, name)
     else:
         return fail_msg(number)

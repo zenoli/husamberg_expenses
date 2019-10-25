@@ -1,4 +1,4 @@
-import commands.flatmates as flatmates
+import db
 
 def success_msg(number, name):
     return (
@@ -31,9 +31,9 @@ def init_command(number, arg_str):
     name = arg_str
     if not name:
         return argument_error_msg()
-    success = flatmates.add_flatmate(number, name)
+    success = db.add_flatmate(number, name)
     if success:
-        flatmates.save()
+        db.save()
         return success_msg(number, name)
     else:
         return fail_msg(number)

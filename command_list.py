@@ -1,5 +1,13 @@
 import re
-from command_ids import *
+from constants import (
+    HELP,
+    INIT,
+    LEAVE,
+    LOG,
+    STATUS,
+    UNDO,
+    UNKNOWN
+)
 from commands import (
     help,
     init,

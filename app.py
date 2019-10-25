@@ -1,12 +1,11 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from command_list import command_list, find_command
-from commands import flatmates
-import command_ids
-import re
+from constants import UNKNOWN    
+import db
 
 
-flatmates.load()
+db.load()
 app = Flask(__name__)
 
 @app.route("/")
@@ -29,7 +28,7 @@ def sms_reply():
 
 
 
-# Flatmates
+# Flatmatescommand_ids
 
 def parse_number(number):
     prefix = 'whatsapp:'
@@ -40,7 +39,7 @@ def parse_number(number):
 
 def parse_cmd(msg):
     splits = msg.split(maxsplit=1)
-    if not splits: return command_ids.UNKNOWN
+    if not splits: return UNKNOWN
 
     if len(splits) > 0: cmd_str = splits[0]
     if len(splits) > 1: arg_str = splits[1].strip()
