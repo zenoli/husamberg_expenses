@@ -1,14 +1,16 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from commands import commands
+from command_list import command_list, find_command
+from commands import flatmates
 import command_ids
 import re
 
+
+flatmates.load()
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-
     return "Hello, World!"
 
 @app.route("/sms", methods=['POST'])
@@ -17,9 +19,8 @@ def sms_reply():
     # Fetch the message
     msg = request.form.get('Body')
     sender = request.form.get('From')
-
-    cmd, args = parse_msg(msg)
-    response_msg = commands[cmd](*args)
+    cmd, arg_str = parse_cmd(msg)
+    response_msg = command_list[cmd](parse_number(sender), arg_str)
     # Create reply
     resp = MessagingResponse()
     resp.message(response_msg)
@@ -30,19 +31,22 @@ def sms_reply():
 
 # Flatmates
 
+def parse_number(number):
+    prefix = 'whatsapp:'
+    return number.split(prefix, 1)[1]
 
 
-def parse_msg(msg):
-    words = msg.split()
-    n = len(words)
-    app.logger.info(f'Number of words are: {n}')
-    command = words[0]
-    if re.match(command_ids.HELP, command, re.IGNORECASE):
-        return (command_ids.HELP, [])
-    elif re.match(command_ids.INIT, command, re.IGNORECASE):
-        return (command_ids.INIT, [words[1]]) if n > 1 else (command_ids.UNKNOWN, [])
-    else:
-        return (command_ids.UNKNOWN, [])
+
+
+def parse_cmd(msg):
+    splits = msg.split(maxsplit=1)
+    if not splits: return command_ids.UNKNOWN
+
+    if len(splits) > 0: cmd_str = splits[0]
+    if len(splits) > 1: arg_str = splits[1].strip()
+    else: arg_str = ""
+
+    return find_command(cmd_str), arg_str
 
 
 if __name__ == "__main__":
