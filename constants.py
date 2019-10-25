@@ -5,6 +5,7 @@ INIT = 'init'
 LEAVE = 'leave'
 LOG = 'log'
 STATUS = 'status'
+HISTORY = 'history'
 UNDO = 'undo'
 UNKNOWN = 'unknown'
 
@@ -23,3 +24,7 @@ DB_FULL_NAME = os.path.join(DB_PATH, DB_NAME)
 
 # wg kasse
 INVESTMENT_RATE = 20.0
+
+# utils
+SEP_DD = "=" * 25 + "\n"
+SEP_D =  "-" * 25 + "\n"

@@ -29,3 +29,6 @@ def average_expenses():
 
 def flatmate_balance(number):
     return total_flatmate_expenses(number) - average_expenses()
+
+def expenses_list(number):
+    return db[number][EXPENSES]

@@ -5,6 +5,7 @@ from constants import (
     LEAVE,
     LOG,
     STATUS,
+    HISTORY,
     UNDO,
     UNKNOWN
 )
@@ -14,6 +15,7 @@ from commands import (
     leave,
     log,
     status,
+    history,
     undo,
     unknown
 )
@@ -24,6 +26,7 @@ command_list = {
     INIT: init.init_command,
     LEAVE: leave.leave_command,
     STATUS: status.status_command,
+    HISTORY: history.history_command,
     UNDO: undo.undo_command,
     LOG: log.log_command,
     UNKNOWN: unknown.unknown_command

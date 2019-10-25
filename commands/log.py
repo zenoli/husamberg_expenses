@@ -21,7 +21,7 @@ def success_msg(price, description):
         f"Successfully logged {price} CHF\n"
     )
 
-def parse_arg(arg_str):
+def parese_whitespace(arg_str):
     if not arg_str:
         return
     else:
@@ -33,10 +33,14 @@ def log_command(number, arg_str):
         return no_argument_msg()
     args = arg_str.split(":")
     if len(args) != 2:
-        return wrong_argument_msg()
-    else:
-        price_str = re.match(r'\d+([.|,]\d{1,2})?', args[1].strip()).group(0)
-        price = float(price_str.replace(",", "."))
+        args = arg_str.split()
+        if len(args) != 2:
+            return wrong_argument_msg()
+    match = re.match(r'\d+([.|,]\d{1,2})?', args[1].strip())
+    if match:
+        price = float(match.group(0).replace(",", "."))
         description = args[0].strip()
         db.log_entry(number, price, description)
         return success_msg(price, description)
+    else:
+        return wrong_argument_msg()
