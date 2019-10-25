@@ -1,4 +1,5 @@
 import re
+import db
 
 def no_argument_msg():
     return (
@@ -37,4 +38,5 @@ def log_command(number, arg_str):
         price_str = re.match(r'\d+([.|,]\d{1,2})?', args[1].strip()).group(0)
         price = float(price_str.replace(",", "."))
         description = args[0].strip()
+        db.log_entry(number, price, description)
         return success_msg(price, description)

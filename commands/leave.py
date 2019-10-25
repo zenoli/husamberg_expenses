@@ -33,7 +33,6 @@ def leave_command(number, arg_str):
     
     name = db.remove_flatmate(number)
     if name:
-        db.save()
         return success_msg(number, name)
     else:
         return fail_msg(number)

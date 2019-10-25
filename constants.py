@@ -12,6 +12,9 @@ UNKNOWN = 'unknown'
 NAME = 'name'
 EXPENSES = 'expenses'
 NUMBER = 'number'
+PRICE = 'price'
+DESCRIPTION = 'description'
+TIMESTAMP = 'timestamp'
 
 # db constants
 DB_NAME = 'db.json'

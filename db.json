@@ -1,1 +1,17 @@
-{}
+{
+  "+41793637649": {
+    "name": "oli",
+    "expenses": [
+      {
+        "price": 3.95,
+        "description": "salz",
+        "timestamp": "25/10/2019"
+      },
+      {
+        "price": 19.95,
+        "description": "Z\u00fcrichs\u00e4cke",
+        "timestamp": "25/10/2019"
+      }
+    ]
+  }
+}

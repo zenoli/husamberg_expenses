@@ -1,10 +1,15 @@
 import json
 import os
+from datetime import date
 from constants import (
     NAME, 
     EXPENSES, 
     DB_NAME,
-    DB_FULL_NAME)
+    DB_FULL_NAME,
+    PRICE,
+    DESCRIPTION,
+    TIMESTAMP
+)
 
 db = dict()
 
@@ -14,15 +19,27 @@ def add_flatmate(number, name):
         return False
     else:
         db[number] = {NAME: name, EXPENSES: []}
+        save()
         return True
 
 def remove_flatmate(number):
     if number in db:
         name = db[number][NAME]
         db.pop(number)
+        save()
         return name
     else:
         return False
+
+
+def log_entry(number, price, description):
+    db[number][EXPENSES].append({
+        PRICE: price,
+        DESCRIPTION: description,
+        TIMESTAMP: date.today().strftime("%d/%m/%Y")
+    })
+    save()
+
 
 def load():
     if os.path.isfile(DB_FULL_NAME):

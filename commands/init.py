@@ -33,7 +33,6 @@ def init_command(number, arg_str):
         return argument_error_msg()
     success = db.add_flatmate(number, name)
     if success:
-        db.save()
         return success_msg(number, name)
     else:
         return fail_msg(number)
