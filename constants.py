@@ -20,3 +20,6 @@ TIMESTAMP = 'timestamp'
 DB_NAME = 'db.json'
 DB_PATH = os.path.join(os.getcwd())
 DB_FULL_NAME = os.path.join(DB_PATH, DB_NAME)
+
+# wg kasse
+INVESTMENT_RATE = 20.0

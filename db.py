@@ -48,7 +48,7 @@ def undo_last_log(number):
         return entry
     else:
         return None
-        
+
 
 def load():
     if os.path.isfile(DB_FULL_NAME):
