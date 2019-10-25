@@ -8,13 +8,13 @@ def status_command(number, arg_str):
     sign = "-:" if balance > 0 else "+"
 
     return (
-        f"Your total expenses:\t{my_expenses} CHF\n"
-        f"Average expenses:\t{avg_expenses} CHF\n"
+        f"Your total expenses:\t{my_expenses:.2f} CHF\n"
+        f"Average expenses:\t{avg_expenses:.2f} CHF\n"
         f"Amount to pay by the end of semester:\n"
-        f"Investement rate:\t{INVESTMENT_RATE} CHF\n"
-        f"Balance:\t\t\t{sign}{abs(balance)} CHF\n"
+        f"Investement rate:\t{INVESTMENT_RATE:.2f} CHF\n"
+        f"Balance:\t\t\t{sign}{abs(balance):.2f} CHF\n"
         f"{SEP_DD}"
-        f"Total:\t{INVESTMENT_RATE - balance} CHF\n"
+        f"Total:\t{INVESTMENT_RATE - balance:.2f} CHF\n"
     )
 
 

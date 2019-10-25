@@ -1,5 +1,6 @@
 import re
 import db
+from constants import expenses_string
 
 def no_argument_msg():
     return (
@@ -18,7 +19,8 @@ def wrong_argument_msg():
 
 def success_msg(price, description):
     return (
-        f"Successfully logged {price} CHF\n"
+        f"Successfully added:\n"
+        f"{description}:\t\t{price:.2f} CHF\n"
     )
 
 def parese_whitespace(arg_str):
@@ -28,7 +30,7 @@ def parese_whitespace(arg_str):
         return
 
 
-def log_command(number, arg_str):
+def add_command(number, arg_str):
     if not arg_str:
         return no_argument_msg()
     args = arg_str.split(":")

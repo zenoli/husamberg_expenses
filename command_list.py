@@ -3,7 +3,7 @@ from constants import (
     HELP,
     INIT,
     LEAVE,
-    LOG,
+    ADD,
     STATUS,
     HISTORY,
     UNDO,
@@ -13,7 +13,7 @@ from commands import (
     help,
     init,
     leave,
-    log,
+    add,
     status,
     history,
     undo,
@@ -28,7 +28,7 @@ command_list = {
     STATUS: status.status_command,
     HISTORY: history.history_command,
     UNDO: undo.undo_command,
-    LOG: log.log_command,
+    ADD: add.add_command,
     UNKNOWN: unknown.unknown_command
 }
 

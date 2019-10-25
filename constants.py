@@ -3,7 +3,7 @@ import os
 HELP = 'help'
 INIT = 'init'
 LEAVE = 'leave'
-LOG = 'log'
+ADD = 'add'
 STATUS = 'status'
 HISTORY = 'history'
 UNDO = 'undo'
@@ -26,5 +26,20 @@ DB_FULL_NAME = os.path.join(DB_PATH, DB_NAME)
 INVESTMENT_RATE = 20.0
 
 # utils
-SEP_DD = "=" * 25 + "\n"
+SEP_LENGTH = 25
+SEP_DD = "=" * SEP_LENGTH + "\n"
 SEP_D =  "-" * 25 + "\n"
+
+def align_strings(str1, str2):
+    l1 = len(str1)
+    l2 = len(str2)
+    n = 50 - l1 - l2
+    if n < 0:
+        return str1 + ' ' + str2
+    else:
+        return str1 + (' ' * n) + str2
+
+def expenses_string(description, price):
+    str1 = f"{description}:"
+    str2 = f"{price:.2f} CHF"
+    return align_strings(str1, str2)
