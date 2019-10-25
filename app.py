@@ -2,10 +2,8 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from command_list import command_list, find_command
 from constants import UNKNOWN    
-import db
 
 
-db.load()
 app = Flask(__name__)
 
 @app.route("/")

@@ -11,8 +11,6 @@ from constants import (
     TIMESTAMP
 )
 
-db = dict()
-
 
 def add_flatmate(number, name):
     if number in db:
@@ -50,13 +48,21 @@ def undo_last_log(number):
         return None
 
 
-def load():
-    if os.path.isfile(DB_FULL_NAME):
-        with open(DB_FULL_NAME) as json_file:
-            global db
-            db = json.load(json_file)
-
 
 def save():
     with open(DB_FULL_NAME,"w") as f:
         json.dump(db,f)
+
+
+
+def init():
+    global db
+    if os.path.isfile(DB_FULL_NAME):
+        with open(DB_FULL_NAME) as json_file:
+            db = json.load(json_file)
+    else:
+        db = dict()
+        save()
+
+
+init()
