@@ -29,7 +29,7 @@ def remove_flatmate(number):
         save()
         return name
     else:
-        return False
+        return None
 
 
 def log_entry(number, price, description):
@@ -40,6 +40,15 @@ def log_entry(number, price, description):
     })
     save()
 
+
+def undo_last_log(number):
+    if len(db[number][EXPENSES]) > 0:
+        entry = db[number][EXPENSES].pop()
+        save()
+        return entry
+    else:
+        return None
+        
 
 def load():
     if os.path.isfile(DB_FULL_NAME):
