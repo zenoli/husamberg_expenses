@@ -14,7 +14,7 @@ def status_command(number, arg_str):
         f"Investement rate:\t{INVESTMENT_RATE:.2f} CHF\n"
         f"Balance:\t\t\t{sign}{abs(balance):.2f} CHF\n"
         f"{SEP_DD}"
-        f"Total:\t{INVESTMENT_RATE - balance:.2f} CHF\n"
+        f"Total:\t{INVESTMENT_RATE - balance:.2f} CHF"
     )
 
 

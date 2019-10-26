@@ -4,7 +4,8 @@ def success_msg(number, name):
     return (
         f"Welcome to the club {name}!\n"
         f"Your phone number {number} has successfully been registered.\n"
-        f"You can deregister by using typing 'Leave {number}'."
+        f"You can deregister by typing:\n"
+        f"Leave {number}."
     )
 
 
@@ -17,7 +18,7 @@ def fail_msg(number):
 def argument_error_msg():
     return (
         f"FAIL: No name provided.\n"
-        f"Please type 'Init [NAME]' where [NAME] is to be replaced by your actual name."
+        f"Please type 'Init [NAME]' where [NAME] is to be replaced by your actual name.\n"
         f"Example: 'Init Emil"
     )
 

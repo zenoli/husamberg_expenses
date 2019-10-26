@@ -17,6 +17,14 @@ def wrong_argument_msg():
     )
 
 
+def not_registered_msg(number):
+    return (
+        f"You are not registered yet.\n"
+        f"Type 'Init [NAME]' where [NAME] is to be replaced by your actual name.\n"
+        f"Example: 'Init Emil"
+    )
+
+
 def success_msg(price, description):
     return (
         f"Successfully added:\n"
@@ -42,7 +50,10 @@ def add_command(number, arg_str):
     if match:
         price = float(match.group(0).replace(",", "."))
         description = args[0].strip()
-        db.log_entry(number, price, description)
-        return success_msg(price, description)
+        success = db.add_expense(number, price, description)
+        if success:
+            return success_msg(price, description)
+        else:
+            return not_registered_msg(number)
     else:
         return wrong_argument_msg()

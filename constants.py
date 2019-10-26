@@ -8,6 +8,9 @@ STATUS = 'status'
 HISTORY = 'history'
 UNDO = 'undo'
 UNKNOWN = 'unknown'
+HOWMUCH = 'how'
+CHECKOUT = 'checkout'
+FINALIZE = 'finalize'
 
 # db identifiers:
 NAME = 'name'
@@ -18,12 +21,14 @@ DESCRIPTION = 'description'
 TIMESTAMP = 'timestamp'
 
 # db constants
-DB_NAME = 'db.json'
-DB_PATH = os.path.join(os.getcwd())
-DB_FULL_NAME = os.path.join(DB_PATH, DB_NAME)
+ADMIN = "+41793637649"
+CURRENT_DB = ""
+DB_PATH = os.path.join(os.getcwd(), "databases")
+BILLS_FULL_NAME = os.path.join(os.getcwd(), "bills.json")
 
 # wg kasse
 INVESTMENT_RATE = 20.0
+IBAN = "CHXX XXXX XXXX XXXX XXXX XX"
 
 # utils
 SEP_LENGTH = 25

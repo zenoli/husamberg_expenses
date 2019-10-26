@@ -4,12 +4,17 @@ from datetime import date
 from constants import (
     NAME, 
     EXPENSES, 
-    DB_NAME,
-    DB_FULL_NAME,
+    CURRENT_DB,
+    DB_PATH,
     PRICE,
     DESCRIPTION,
-    TIMESTAMP
+    TIMESTAMP,
+    BILLS_FULL_NAME
 )
+# from queries import bill
+
+current_db = 'FALLBACK'
+global db
 
 
 def add_flatmate(number, name):
@@ -30,13 +35,17 @@ def remove_flatmate(number):
         return None
 
 
-def log_entry(number, price, description):
-    db[number][EXPENSES].append({
-        PRICE: price,
-        DESCRIPTION: description,
-        TIMESTAMP: date.today().strftime("%d/%m/%Y")
-    })
-    save()
+def add_expense(number, price, description):
+    if number in db:
+        db[number][EXPENSES].append({
+            PRICE: price,
+            DESCRIPTION: description,
+            TIMESTAMP: date.today().strftime("%d/%m/%Y")
+        })
+        save()
+        return True
+    else:
+        return False
 
 
 def undo_last_log(number):
@@ -50,19 +59,40 @@ def undo_last_log(number):
 
 
 def save():
-    with open(DB_FULL_NAME,"w") as f:
+    db_filename = f"{current_db}.json"
+    db_full_name = os.path.join(DB_PATH, db_filename)
+    with open(db_full_name,"w") as f:
         json.dump(db,f)
 
 
 
-def init():
+def checkout_db(db_name):
     global db
-    if os.path.isfile(DB_FULL_NAME):
-        with open(DB_FULL_NAME) as json_file:
-            db = json.load(json_file)
-    else:
+    global current_db
+    current_db = db_name
+    db = load(db_name)
+    if not db: #If db does not exist, create new one
         db = dict()
         save()
+        return False
+    else:
+        return True
+        
+
+def load(db_name):
+    db_filename = f"{db_name}.json"
+    db_full_name = os.path.join(DB_PATH, db_filename)
+    if os.path.isfile(db_full_name):
+        with open(db_full_name) as json_file:
+            db = json.load(json_file)
+            return db
+    else:
+        return None
+
+
+def init():
+    global db
+    checkout_db(current_db)
 
 
 init()

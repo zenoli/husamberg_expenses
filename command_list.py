@@ -7,6 +7,9 @@ from constants import (
     STATUS,
     HISTORY,
     UNDO,
+    CHECKOUT,
+    FINALIZE,
+    HOWMUCH,
     UNKNOWN
 )
 from commands import (
@@ -17,6 +20,9 @@ from commands import (
     status,
     history,
     undo,
+    checkout,
+    finalize,
+    howmuch,
     unknown
 )
 
@@ -29,6 +35,9 @@ command_list = {
     HISTORY: history.history_command,
     UNDO: undo.undo_command,
     ADD: add.add_command,
+    CHECKOUT: checkout.checkout_command,
+    FINALIZE: finalize.finalize_command,
+    HOWMUCH: howmuch.howmuch_command,
     UNKNOWN: unknown.unknown_command
 }
 
