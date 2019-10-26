@@ -11,4 +11,3 @@ def checkout_command(number, arg_str):
         else:
             return f"New DB {db_name} created."
         
-    

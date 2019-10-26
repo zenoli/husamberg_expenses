@@ -11,10 +11,7 @@ from constants import (
     TIMESTAMP,
     BILLS_FULL_NAME
 )
-# from queries import bill
 
-current_db = 'FALLBACK'
-global db
 
 
 def add_flatmate(number, name):
@@ -92,7 +89,8 @@ def load(db_name):
 
 def init():
     global db
+    global current_db
+    current_db = "FALLBACK"
     checkout_db(current_db)
-
 
 init()

@@ -20,8 +20,10 @@ def finalize():
         json.dump(bills,f)
         return True
 
-bills = load()
 
 def init():
     global bills
-    bills = load()
+    bills = {}
+
+init()
+
