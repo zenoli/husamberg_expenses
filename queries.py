@@ -1,4 +1,4 @@
-from db import db
+import db
 from constants import (
     DESCRIPTION,
     EXPENSES,
@@ -11,16 +11,16 @@ from constants import (
 
 
 def total_flatmate_expenses(number):
-    prices = (log[PRICE] for log in db[number][EXPENSES])
+    prices = (log[PRICE] for log in db.db[number][EXPENSES])
     return sum(prices)
 
 
 def num_flatmates():
-    return len(db)
+    return len(db.db)
 
 
 def total_expenses():
-    expenses_list = (total_flatmate_expenses(number) for number in db)
+    expenses_list = (total_flatmate_expenses(number) for number in db.db)
     return sum(expenses_list)
 
 
@@ -33,7 +33,7 @@ def flatmate_balance(number):
 
 
 def expenses_list(number):
-    return db[number][EXPENSES]
+    return db.db[number][EXPENSES]
 
 
 def bill(number):

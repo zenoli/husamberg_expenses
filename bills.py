@@ -1,4 +1,4 @@
-from db import db
+import db
 import queries as q
 import json
 import os
@@ -15,7 +15,7 @@ def load():
 
 def finalize():
     global bills
-    bills = { number : q.bill(number) for number in db }
+    bills = { number : q.bill(number) for number in db.db }
     with open(BILLS_FULL_NAME,"w") as f:
         json.dump(bills,f)
         return True
