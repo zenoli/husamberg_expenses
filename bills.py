@@ -13,6 +13,7 @@ def load():
         with open(BILLS_FULL_NAME) as json_file:
             return json.load(json_file)
 
+
 def finalize():
     global bills
     bills = { number : q.bill(number) for number in db.db }

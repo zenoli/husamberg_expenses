@@ -12,7 +12,8 @@ def success_msg(price, description):
 
 def fail_msg():
     return (
-        f"There is no log to undo.\n"
+        f"There is nothing to undo.\n"
+        f"Your list of expenses is empty."
     )
 
 def undo_command(number, arg_str):

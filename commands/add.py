@@ -6,14 +6,14 @@ def no_argument_msg():
     return (
         f"FAIL: No arguments provided.\n"
         f"A valid example would be:\n"
-        f"Log salz: 2.95chf\n"
+        f"Add salz: 2.95chf\n"
     )
 
 def wrong_argument_msg():
     return (
         f"FAIL: Wrong argument.\n"
         f"A valid example would be:\n"
-        f"Log salz: 2.95chf\n"
+        f"Add salz: 2.95chf\n"
     )
 
 
@@ -29,6 +29,7 @@ def success_msg(price, description):
     return (
         f"Successfully added:\n"
         f"{description}:\t\t{price:.2f} CHF\n"
+        f"Type 'Undo' if you made a mistake."
     )
 
 def parese_whitespace(arg_str):
