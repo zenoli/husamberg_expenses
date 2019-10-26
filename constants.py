@@ -1,6 +1,7 @@
 import os
 # Command identifiers:
 HELP = 'help'
+HELLO = 'hello'
 INIT = 'init'
 LEAVE = 'leave'
 ADD = 'add'

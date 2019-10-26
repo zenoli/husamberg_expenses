@@ -1,6 +1,7 @@
 import re
 from constants import (
     HELP,
+    HELLO,
     INIT,
     LEAVE,
     ADD,
@@ -14,6 +15,7 @@ from constants import (
 )
 from commands import (
     help,
+    hello,
     init,
     leave,
     add,
@@ -30,6 +32,7 @@ from commands import (
 command_list = {
     HELP: help.help_command,
     INIT: init.init_command,
+    HELLO: hello.hello_command,
     LEAVE: leave.leave_command,
     STATUS: status.status_command,
     HISTORY: history.history_command,
