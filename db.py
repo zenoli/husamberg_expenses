@@ -90,7 +90,7 @@ def load(db_name):
 def init():
     global db
     global current_db
-    current_db = "FALLBACK"
+    current_db = "HS19"
     checkout_db(current_db)
 
 init()
