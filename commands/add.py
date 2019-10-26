@@ -21,7 +21,7 @@ def not_registered_msg(number):
     return (
         f"You are not registered yet.\n"
         f"Type 'Init [NAME]' where [NAME] is to be replaced by your actual name.\n"
-        f"Example: 'Init Emil"
+        f"Example: Init Emil"
     )
 
 

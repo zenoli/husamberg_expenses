@@ -6,8 +6,8 @@ def success_msg(number, name):
         f"Your phone number {number} has successfully been registered.\n"
         f"You can now start adding your expenses to the system.\n"
         f"Let's try with an example (you can undo it afterwards):\n"
-        f"Type the folling to announce that you bought milk:\n"
-        f"Add milk: 1.95."
+        f"Type the following to announce that you bought milk:\n"
+        f"Add milk: 1.95chf"
     )
 
 
