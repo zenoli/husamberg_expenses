@@ -29,7 +29,9 @@ BILLS_FULL_NAME = os.path.join(os.getcwd(), "bills.json")
 
 # wg kasse
 INVESTMENT_RATE = 20.0
-IBAN = "CHXX XXXX XXXX XXXX XXXX XX"
+BOOKKEEPER = "Céline Bitter"
+IBAN = "CH43 0024 5245 6297 78M1 Q"
+BANK = "UBS Frick"
 
 # utils
 SEP_LENGTH = 25
