@@ -9,7 +9,7 @@ from constants import (
 import bills
 
 def howmuch_command(number, arg_str):
-    if bills:
+    if bills.bills:
         return (
             f"Please transfer {bills.bills[number]:.2f} CHF to\n"
             f"Recipient: {BOOKKEEPER}\n"
