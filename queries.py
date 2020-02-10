@@ -36,6 +36,7 @@ def flatmate_balance(number):
 def internet_per_semester():
     return 6 * INTERNET_MONTH / num_flatmates()
 
+
 def expenses_list(number):
     return db.db[number][EXPENSES]
 

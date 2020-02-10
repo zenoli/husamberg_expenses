@@ -13,7 +13,6 @@ from constants import (
 )
 
 
-
 def add_flatmate(number, name):
     if number in db:
         return False
@@ -21,6 +20,7 @@ def add_flatmate(number, name):
         db[number] = {NAME: name, EXPENSES: []}
         save()
         return True
+
 
 def remove_flatmate(number):
     if number in db:
@@ -54,13 +54,11 @@ def undo_last_log(number):
         return None
 
 
-
 def save():
     db_filename = f"{current_db}.json"
     db_full_name = os.path.join(DB_PATH, db_filename)
     with open(db_full_name,"w") as f:
         json.dump(db,f)
-
 
 
 def checkout_db(db_name):
