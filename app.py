@@ -25,14 +25,11 @@ def sms_reply():
     return str(resp)
 
 
-
 # Flatmatescommand_ids
 
 def parse_number(number):
     prefix = 'whatsapp:'
     return number.split(prefix, 1)[1]
-
-
 
 
 def parse_cmd(msg):

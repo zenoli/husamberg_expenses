@@ -24,7 +24,7 @@ def finalize():
 
 def init():
     global bills
-    bills = {}
+    bills = load()
 
 init()
 

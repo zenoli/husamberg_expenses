@@ -1,3 +1,4 @@
 {
-  "python.pythonPath": "/home/olivier/.virtualenvs/husamberg/bin/python"
+  "python.pythonPath": "/home/olivier/.virtualenvs/husamberg/bin/python",
+  "cSpell.enabled": false
 }

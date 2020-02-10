@@ -6,7 +6,8 @@ from constants import (
     TIMESTAMP,
     NAME,
     NUMBER,
-    INVESTMENT_RATE
+    INVESTMENT_RATE,
+    INTERNET_MONTH
 )
 
 
@@ -32,10 +33,14 @@ def flatmate_balance(number):
     return total_flatmate_expenses(number) - average_expenses()
 
 
+def internet_per_semester():
+    return 6 * INTERNET_MONTH / num_flatmates()
+
 def expenses_list(number):
     return db.db[number][EXPENSES]
 
 
 def bill(number):
     balance = flatmate_balance(number)
-    return INVESTMENT_RATE - balance
+    internet = internet_per_semester()
+    return internet + INVESTMENT_RATE - balance
