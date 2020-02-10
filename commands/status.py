@@ -6,8 +6,11 @@ def status_command(number, arg_str):
     avg_expenses = q.average_expenses()
     balance = q.flatmate_balance(number)
     internet = q.internet_per_semester()
+    investment = INVESTMENT_RATE
     sign = "+" if balance >= 0 else "-"
     sign_neg = "-" if balance >= 0 else "+"
+
+    total = internet + investment - balance
 
     return (
         f"Your total expenses:\t{my_expenses:.2f} CHF\n"

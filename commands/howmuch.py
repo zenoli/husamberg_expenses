@@ -20,6 +20,7 @@ def howmuch_command(number, arg_str):
         sign_neg = "-" if balance >= 0 else "+"
         
         total = internet + investment - balance
+        
         return (
             f"Please transfer {total:.2f} CHF to\n"
             f"Recipient: {BOOKKEEPER}\n"
