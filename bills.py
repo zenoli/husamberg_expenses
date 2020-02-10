@@ -17,7 +17,7 @@ def load():
 def finalize():
     global bills
 
-    expenses = { number : q.bill(number) for number in db.db }
+    expenses = { number : q.total_flatmate_expenses(number) for number in db.db }
     bills = { 
         "expenses" : expenses,
         "avg_expenses" : q.average_expenses(),
