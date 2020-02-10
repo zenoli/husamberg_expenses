@@ -4,7 +4,7 @@ import json
 import os
 from datetime import date
 from constants import (
-    BILLS_FULL_NAME
+    BILLS_FULL_NAME, INVESTMENT_RATE
 )
 
 
@@ -16,7 +16,14 @@ def load():
 
 def finalize():
     global bills
-    bills = { number : q.bill(number) for number in db.db }
+
+    expenses = { number : q.bill(number) for number in db.db }
+    bills = { 
+        "expenses" : expenses,
+        "avg_expenses" : q.average_expenses(),
+        "internet" : q.internet_per_semester(),
+        "investment" : INVESTMENT_RATE
+     }
     with open(BILLS_FULL_NAME,"w") as f:
         json.dump(bills,f)
         return True
