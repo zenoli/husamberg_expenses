@@ -7,7 +7,8 @@ from constants import (
     NAME,
     NUMBER,
     INVESTMENT_RATE,
-    INTERNET_MONTH
+    INTERNET_MONTH,
+    NUM_FLATMATES
 )
 
 
@@ -17,7 +18,7 @@ def total_flatmate_expenses(number):
 
 
 def num_flatmates():
-    return len(db.db)
+    return NUM_FLATMATES
 
 
 def total_expenses():
