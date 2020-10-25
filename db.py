@@ -88,7 +88,7 @@ def load(db_name):
 def init():
     global db
     global current_db
-    current_db = "FS20"
+    current_db = "HS20"
     checkout_db(current_db)
 
 init()
