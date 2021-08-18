@@ -1,5 +1,7 @@
 __pycache__
 databases/*
+.vim
+.vimspector.json
 *.pyc
 ngrok
 .secret
