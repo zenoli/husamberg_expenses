@@ -3,7 +3,6 @@ from twilio.twiml.messaging_response import MessagingResponse
 from command_list import command_list, find_command
 from constants import UNKNOWN
 
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -36,9 +35,10 @@ def parse_cmd(msg):
     splits = msg.split(maxsplit=1)
     if not splits: return UNKNOWN
 
+    cmd_str = ""
+    arg_str = ""
     if len(splits) > 0: cmd_str = splits[0]
     if len(splits) > 1: arg_str = splits[1].strip()
-    else: arg_str = ""
 
     return find_command(cmd_str), arg_str
 

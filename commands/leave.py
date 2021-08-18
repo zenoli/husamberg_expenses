@@ -36,3 +36,4 @@ def leave_command(number, arg_str):
         return success_msg(number, name)
     else:
         return fail_msg(number)
+
